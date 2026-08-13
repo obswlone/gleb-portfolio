@@ -1,68 +1,36 @@
 "use client";
 
-import { Component, createContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type Theme = "dark" | "light";
 
 type ThemeContextValue = {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 };
 
 export const ThemeContext = createContext<ThemeContextValue>({
   theme: "dark",
-  toggleTheme: () => {},
+  setTheme: () => {},
 });
 
-ThemeContext.displayName = "Theme";
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>("dark");
 
-function applyTheme(theme: Theme) {
-  document.documentElement.classList.toggle("dark", theme === "dark");
-  localStorage.setItem("theme", theme);
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    setThemeState(stored === "light" ? "light" : "dark");
+  }, []);
+
+  function setTheme(next: Theme) {
+    setThemeState(next);
+    document.documentElement.classList.toggle("dark", next === "dark");
+    localStorage.setItem("theme", next);
+  }
+
+  return <ThemeContext value={{ theme, setTheme }}>{children}</ThemeContext>;
 }
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export class ThemeProvider extends Component<Props, ThemeContextValue> {
-  constructor(props: Props) {
-    super(props);
-
-    this.toggleTheme = this.toggleTheme.bind(this);
-
-    this.state = {
-      theme: "dark",
-      toggleTheme: this.toggleTheme,
-    };
-  }
-
-  componentDidMount() {
-    const stored = localStorage.getItem("theme");
-    const theme: Theme = stored === "light" ? "light" : "dark";
-
-    if (theme !== this.state.theme) {
-      this.setState({ theme });
-    }
-  }
-
-  componentDidUpdate(_prevProps: Props, prevState: ThemeContextValue) {
-    if (prevState.theme !== this.state.theme) {
-      applyTheme(this.state.theme);
-    }
-  }
-
-  toggleTheme() {
-    this.setState((state) => ({
-      theme: state.theme === "dark" ? "light" : "dark",
-    }));
-  }
-
-  render() {
-    return (
-      <ThemeContext.Provider value={this.state}>
-        {this.props.children}
-      </ThemeContext.Provider>
-    );
-  }
+export function useTheme() {
+  return useContext(ThemeContext);
 }
