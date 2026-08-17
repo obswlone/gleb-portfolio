@@ -39,6 +39,35 @@ export const about = {
   title: "About",
   description:
     "I'm Gleb, a student and frontend developer. I care about clear interfaces, solid fundamentals, and shipping work I can stand behind.",
+  intro:
+    "I study and build for the web. Right now I'm focused on frontend: layout, component structure, and making interfaces that stay readable as they grow. This site is where I collect that work.",
+  experience: [
+    {
+      title: "Frontend developer",
+      place: "Personal projects",
+      timeframe: "Present",
+      description:
+        "Designing and building web interfaces with React and Next.js, including this portfolio.",
+    },
+  ],
+  studies: [
+    {
+      title: "Bachelor's in Programming",
+      place: "KUL, Poland",
+      timeframe: "2024 — Present",
+      description:
+        "Undergraduate studies in programming at The John Paul II Catholic University of Lublin.",
+    },
+  ],
+  skills: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+  ],
 };
 
 export const work = {
