@@ -73,7 +73,34 @@ export const about = {
 export const work = {
   title: "Work",
   description:
-    "Selected projects and case studies. I'm putting this section together.",
+    "Selected projects I contributed to, from an internship to freelance frontend work.",
+  projects: [
+    {
+      name: "Midapt",
+      href: "https://midapt.com/",
+      contribution:
+        "Internship at Midapt, where I worked on UI and SEO tasks.",
+      summary:
+        "A Polish digital partner building web, mobile, and AI products for businesses.",
+      logo: {
+        src: "/images/work/midapt.png",
+        alt: "Midapt",
+        shape: "square",
+      },
+    },
+    {
+      name: "Tea4You",
+      href: "https://www.instagram.com/tea4you.shop/",
+      contribution:
+        "I built the frontend for the shop's Telegram page.",
+      summary: "An Instagram tea shop with a custom Telegram storefront.",
+      logo: {
+        src: "/images/work/tea4you.png",
+        alt: "Tea4You",
+        shape: "circle",
+      },
+    },
+  ],
 };
 
 export const blog = {
