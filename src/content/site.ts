@@ -3,6 +3,7 @@ export const person = {
   role: "Frontend developer",
   headline: "Student and frontend developer",
   email: "baturahlib@gmail.com",
+  avatar: "/images/avatar.png",
 };
 
 export const social = [
@@ -104,7 +105,36 @@ export const work = {
 };
 
 export const blog = {
-  title: "Blog",
-  description:
-    "Notes on frontend development and what I'm learning along the way.",
+  title: "Travel",
+  description: "Places I've been — short notes from the road.",
+  posts: [
+    {
+      id: "prague",
+      place: "Prague, Czechia",
+      date: "2025-07-18",
+      image: "/images/blog/prague.png",
+      excerpt: "The National Museum glowing over Wenceslas Square at night.",
+      body: "Prague after dark is all stone and gold light. I stood under the National Museum and watched the square empty out — banners, columns, and the dome against a black sky.",
+    },
+    {
+      id: "munich",
+      place: "Munich, Germany",
+      date: "2025-06-09",
+      image: "/images/blog/munich.png",
+      excerpt: "Looking straight up at Gothic stone and spires.",
+      body: "In Munich I kept looking up. The cathedral fills the frame from the street: dark stone, pointed arches, and a pale sky behind the towers.",
+    },
+    {
+      id: "warsaw",
+      place: "Warsaw, Poland",
+      date: "2025-03-21",
+      image: "/images/blog/warsaw.png",
+      excerpt: "Glass towers disappearing into low cloud.",
+      body: "Warsaw in fog. The office lights stay on while the tops of the buildings vanish. It feels newer, heavier, and quieter than the Old Town a few streets away.",
+    },
+  ],
 };
+
+export function getPost(id: string) {
+  return blog.posts.find((post) => post.id === id);
+}
