@@ -1,0 +1,63 @@
+.home-swiper.swiper {
+  --swiper-navigation-color: var(--muted);
+  --swiper-navigation-size: 12px;
+  --swiper-pagination-color: var(--foreground);
+  --swiper-pagination-bullet-size: 6px;
+  --swiper-pagination-bullet-inactive-color: var(--border);
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  overflow: hidden;
+  padding-bottom: 2.75rem;
+}
+
+.home-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.home-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.home-swiper .swiper-slide > * {
+  width: 100%;
+  min-height: 100%;
+}
+
+.home-swiper.swiper-horizontal > .swiper-pagination-bullets {
+  bottom: 0.65rem;
+  left: 0;
+  width: auto;
+  text-align: left;
+}
+
+.home-swiper.swiper-horizontal > .swiper-button-prev,
+.home-swiper.swiper-horizontal > .swiper-button-next {
+  top: auto;
+  bottom: 0.25rem;
+  margin-top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+}
+
+.home-swiper.swiper-horizontal > .swiper-button-prev svg,
+.home-swiper.swiper-horizontal > .swiper-button-next svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.home-swiper.swiper-horizontal > .swiper-button-prev:hover,
+.home-swiper.swiper-horizontal > .swiper-button-next:hover {
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.home-swiper.swiper-horizontal > .swiper-button-next {
+  right: 0;
+  left: auto;
+}
+
+.home-swiper.swiper-horizontal > .swiper-button-prev {
+  left: auto;
+  right: 2rem;
+}

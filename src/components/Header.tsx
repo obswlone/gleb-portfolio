@@ -41,7 +41,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto grid h-16 w-full max-w-5xl grid-cols-[1fr_auto_1fr] items-center px-6">
+      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-center gap-2 px-6 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:gap-0">
         <TimeDisplay />
 
         <nav className="flex items-center gap-1 rounded-full border border-border bg-surface/80 p-1">
