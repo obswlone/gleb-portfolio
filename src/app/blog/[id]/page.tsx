@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Avatar } from "@/components/Avatar";
 import { formatPostDate } from "@/components/PostCard";
+import { SavePostButton } from "@/components/SavePostButton";
 import { blog, getPost, person } from "@/content/site";
 
 type PostPageProps = {
@@ -39,9 +40,12 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="flex flex-col gap-8">
-      <Link href="/blog" className="text-sm text-muted transition-colors hover:text-foreground">
-        ← Travel
-      </Link>
+      <div className="flex items-center justify-between gap-3">
+        <Link href="/blog" className="text-sm text-muted transition-colors hover:text-foreground">
+          ← Travel
+        </Link>
+        <SavePostButton id={post.id} />
+      </div>
       <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border">
         <Image
           src={post.image}

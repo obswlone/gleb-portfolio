@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { home, person } from "@/content/site";
+import { SavedPostsProvider } from "@/context/saved-posts";
 import { ThemeScript } from "@/context/ThemeScript";
 import { ThemeProvider } from "@/context/theme";
 
@@ -39,11 +40,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-dvh flex-col bg-background text-foreground">
         <ThemeProvider>
-          <Header />
-          <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:py-24">
-            {children}
-          </main>
-          <Footer />
+          <SavedPostsProvider>
+            <Header />
+            <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16 sm:py-24">
+              {children}
+            </main>
+            <Footer />
+          </SavedPostsProvider>
         </ThemeProvider>
       </body>
     </html>
